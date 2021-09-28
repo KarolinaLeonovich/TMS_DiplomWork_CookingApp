@@ -10,6 +10,7 @@ class Employee(models.Model):
     name = models.CharField(max_length=50)
     birth_year = models.PositiveSmallIntegerField()
     position = models.ForeignKey(Position, on_delete=models.CASCADE, blank=True, null=True)
+    photo = models.ImageField(upload_to='photo/', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -27,6 +28,7 @@ class Equipment(models.Model):
 class PositionQuantity(models.Model):
     position_name = models.OneToOneField(Position, on_delete=models.CASCADE, primary_key=True,)
     position_quantity = models.PositiveSmallIntegerField()
+    position_description = models.TextField(blank=True, null=True)
 
 
 

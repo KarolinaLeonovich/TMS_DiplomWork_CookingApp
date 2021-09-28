@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from datetime import date
 from .models import *
 from .serializers import *
@@ -24,3 +24,11 @@ class EquipmentView(APIView):
         if serializer.is_valid(raise_exception=True):
             equipment_saved = serializer.save()
         return Response({"success": "Equipment '{}' created successfully".format(equipment_saved.name)})
+
+
+class StaffList(ListView):
+    model = Employee
+    template_name = 'staff.html'
+
+class MainPage(TemplateView):
+    template_name = 'main.html'
