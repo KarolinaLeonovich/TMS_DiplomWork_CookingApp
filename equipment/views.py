@@ -18,4 +18,9 @@ class EquipmentView(APIView):
         serializer = EquipmentSerializer(equipment, many=True)
         return Response({"equipment": serializer.data})
 
-
+    def post(self, request):
+        equipment = request.data.get('equipment')
+        serializer = EquipmentSerializer(data=equipment)
+        if serializer.is_valid(raise_exception=True):
+            equipment_saved = serializer.save()
+        return Response({"success": "Equipment '{}' created successfully".format(equipment_saved.name)})
