@@ -18,7 +18,15 @@
 <br>А здесь написано <a href="/equipment/" target="_blank">про наше передовое оборудование</a>
 <br>
 <br>
-<br>Работаешь в Рога и копыта? Залогинься!
+<br>
+  {% if user.is_authenticated %}
+    привет, {{user.username}} !
+    <a href="logout">выйти ({{user.username}})</a>
+  {% else %}
+    Работаешь в Рога и копыта? Залогинься!
+    <a href="register">Регистрация на сайте</a>
+    <a href="login">Авторизация</a>
+  {% endif %}
 
 </body>
 </html>

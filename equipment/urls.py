@@ -7,4 +7,7 @@ urlpatterns = [
     path('equipment_api/', EquipmentView.as_view()),
     path('staff/', StaffList.as_view(), name='staff'),
     path('', MainPage.as_view(), name='main_page'),
+    path('register/', RegisterFormView.as_view()),
+    path('login/', LoginFormView.as_view()),
+    path('logout/', LogoutView.as_view()),
 ]
