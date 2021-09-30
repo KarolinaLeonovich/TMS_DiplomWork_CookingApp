@@ -1,4 +1,6 @@
 from django.views.generic import TemplateView
+from rest_framework.generics import get_object_or_404
+
 from .models import *
 from .serializers import *
 from rest_framework.response import Response
@@ -28,6 +30,23 @@ class EquipmentView(APIView):
         if serializer.is_valid(raise_exception=True):
             equipment_saved = serializer.save()
         return Response({"success": "Equipment '{}' created successfully".format(equipment_saved.name)})
+
+    def put(self, request, pk):
+        saved_equipment = get_object_or_404(Equipment.objects.all(), pk=pk)
+        data = request.data.get('equipment')
+        serializer = EquipmentSerializer(instance=saved_equipment, data=data, partial=True)
+        if serializer.is_valid(raise_exception=True):
+            equipment_saved = serializer.save()
+        return Response({
+            "success": "Equipment '{}' updated successfully".format(equipment_saved.title)
+        })
+
+    def delete(self, request, pk):
+        equipment = get_object_or_404(Equipment.objects.all(), pk=pk)
+        equipment.delete()
+        return Response({
+            "message": "Equipment with id `{}` has been deleted.".format(pk)
+        }, status=204)
 
 
 class StaffList(ListView):
@@ -59,7 +78,6 @@ class LoginFormView(FormView):
 
     def form_valid(self, form):
         self.user = form.get_user()
-
         login(self.request, self.user)
         return super(LoginFormView, self).form_valid(form)
 

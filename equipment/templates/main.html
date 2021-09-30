@@ -21,9 +21,11 @@
 <br>
   {% if user.is_authenticated %}
     привет, {{user.username}} !
-    <a href="logout">выйти ({{user.username}})</a>
+    <a href="logout/">выйти ({{user.username}})</a>
   {% else %}
     Работаешь в Рога и копыта? Залогинься!
+<br>
+<br>
     <a href="register">Регистрация на сайте</a>
     <a href="login">Авторизация</a>
   {% endif %}
