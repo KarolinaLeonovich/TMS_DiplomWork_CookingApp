@@ -1,9 +1,0 @@
-<h1>Список имущества фирмы Рога и Копыта</h1>
-<ul>
-
-  {% for equipment in equipment_list %}
-    <h2>{{ equipment.name }}</h2>
-    <img src="{{ equipment.image.url}}" alt="{{ equipment.name }}" width="500">
-    <br>Ответственный - {{ equipment.in_use }}
-  {% endfor %}
-</ul>
