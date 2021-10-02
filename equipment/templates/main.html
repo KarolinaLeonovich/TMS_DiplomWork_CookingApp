@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Рога и копыта</title>
+    <meta name="keywords" content="фирма, прикол, рога и копыта">
+    <meta name="desctription" content="Это тренировочный сайт для фирмы Рога и копыта">
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/85/85215.png">
+</head>
+<body>
+<h1>ООО "Рога и копыта"</h1>
+<br>Приветствуем вас на сайте фирмы Рога и копыта!
+<br>
+<br>
+<br>Вот тут вы можете почитать: <a href="/staff/" target="_blank">про наших работников</a>
+<br>
+<br>
+<br>А здесь написано <a href="/equipment/" target="_blank">про наше передовое оборудование</a>
+<br>
+<br>
+<br>
+  {% if user.is_authenticated %}
+    привет, {{user.username}} !
+    <a href="logout/">выйти ({{user.username}})</a>
+  {% else %}
+    Работаешь в Рога и копыта? Залогинься!
+<br>
+<br>
+    <a href="register">Регистрация на сайте</a>
+    <a href="login">Авторизация</a>
+  {% endif %}
+
+</body>
+</html>

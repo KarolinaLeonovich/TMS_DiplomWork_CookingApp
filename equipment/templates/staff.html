@@ -1,0 +1,9 @@
+<h1>Список персонала фирмы Рога и Копыта</h1>
+<ul>
+
+  {% for staff in employee_list %}
+    <h2>{{ staff.name }} - {{ staff.position }}</h2>
+    <img src="{{ staff.photo.url}}" alt="{{ staff.name }}" width="500" title="{{ staff.position }}">
+
+  {% endfor %}
+</ul>
