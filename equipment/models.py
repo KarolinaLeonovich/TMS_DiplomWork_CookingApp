@@ -10,7 +10,7 @@ class Employee(models.Model):
     name = models.CharField(max_length=50)
     birth_year = models.PositiveSmallIntegerField()
     position = models.ForeignKey(Position, on_delete=models.CASCADE, blank=True, null=True)
-    photo = models.ImageField(upload_to='photo/', blank=True, null=True)
+    photo = models.ImageField(upload_to='media/photo/', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -19,7 +19,7 @@ class Equipment(models.Model):
     name = models.CharField(max_length=50)
     serial = models.PositiveSmallIntegerField()
     in_use = models.ForeignKey(Employee, on_delete=models.SET_NULL, blank=True, null=True)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='media/images/', blank=True, null=True)
 
     def __str__(self):
         return self.name

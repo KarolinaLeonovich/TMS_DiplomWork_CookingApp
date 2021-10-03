@@ -3,6 +3,7 @@ from .models import Equipment
 
 
 class EquipmentSerializer(serializers.Serializer):
+    id = serializers.CharField(read_only=True)
     name = serializers.CharField()
     serial = serializers.IntegerField()
 
