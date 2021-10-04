@@ -1,16 +1,12 @@
 from django.views.generic import TemplateView
-from rest_framework import viewsets, permissions
-from rest_framework.generics import get_object_or_404
+from rest_framework import permissions
 from rest_framework.viewsets import ModelViewSet
 
 from .models import *
 from .serializers import *
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from django.contrib.auth import login, logout
+
+from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.http import HttpResponseRedirect
-from django.views import View
 from django.views.generic import ListView, FormView
 
 
