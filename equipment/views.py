@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+
 from rest_framework import permissions
 from rest_framework.viewsets import ModelViewSet
 
@@ -8,11 +9,6 @@ from .serializers import *
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.views.generic import ListView, FormView
-
-
-class EquipmentList(ListView):
-    model = Equipment
-    template_name = 'equipment.html'
 
 
 class EquipmentViewSet(ModelViewSet):

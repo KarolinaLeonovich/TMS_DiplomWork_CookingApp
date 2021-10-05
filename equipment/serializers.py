@@ -6,7 +6,7 @@ class EquipmentSerializer(serializers.Serializer):
     id = serializers.CharField(read_only=True)
     name = serializers.CharField()
     serial = serializers.IntegerField()
-
+    image = serializers.ImageField()
 
     def create(self, validated_data):
         return Equipment.objects.create(**validated_data)

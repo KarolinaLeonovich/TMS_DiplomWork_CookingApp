@@ -9,7 +9,7 @@ router.register('equipment_api', EquipmentViewSet, basename='equipment_api')
 
 
 urlpatterns = [
-    path('equipment/', EquipmentList.as_view(), name='equipment'),
+    path('equipment/', EquipmentViewSet.as_view({'get': 'list'}), name='equipment'),
     path('staff/', StaffList.as_view(), name='staff'),
     path('', MainPage.as_view(), name='main_page'),
     path('register/', RegisterFormView.as_view()),
